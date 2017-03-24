@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DataBlocker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>data diet.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>043BD8EC1E8590CC008A4DD3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>043BD9051E8593C2008A4DD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

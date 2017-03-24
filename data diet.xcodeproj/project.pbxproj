@@ -12,7 +12,36 @@
 		043BD8F61E8590CD008A4DD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BD8F41E8590CD008A4DD3 /* Main.storyboard */; };
 		043BD8F81E8590CD008A4DD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043BD8F71E8590CD008A4DD3 /* Assets.xcassets */; };
 		043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BD8F91E8590CD008A4DD3 /* LaunchScreen.storyboard */; };
+		043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
+		043BD90F1E8593C2008A4DD3 /* DataBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 043BD9061E8593C2008A4DD3 /* DataBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		043BD9151E859429008A4DD3 /* emptylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9141E859429008A4DD3 /* emptylist.json */; };
+		043BD9171E85942E008A4DD3 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
+		043BD9191E8598D6008A4DD3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD9181E8598D6008A4DD3 /* Reachability.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		043BD90D1E8593C2008A4DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043BD8E51E8590CC008A4DD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 043BD9051E8593C2008A4DD3;
+			remoteInfo = DataBlocker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		043BD9131E8593C2008A4DD3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				043BD90F1E8593C2008A4DD3 /* DataBlocker.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		043BD8ED1E8590CD008A4DD3 /* data diet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "data diet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +51,23 @@
 		043BD8F71E8590CD008A4DD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043BD8FA1E8590CD008A4DD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043BD8FC1E8590CD008A4DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043BD9061E8593C2008A4DD3 /* DataBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DataBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
+		043BD90C1E8593C2008A4DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043BD9141E859429008A4DD3 /* emptylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptylist.json; sourceTree = "<group>"; };
+		043BD9161E85942E008A4DD3 /* datalist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datalist.json; sourceTree = "<group>"; };
+		043BD9181E8598D6008A4DD3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		043BD8EA1E8590CC008A4DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		043BD9031E8593C2008A4DD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				043BD8EF1E8590CD008A4DD3 /* data diet */,
+				043BD9071E8593C2008A4DD3 /* DataBlocker */,
 				043BD8EE1E8590CD008A4DD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				043BD8ED1E8590CD008A4DD3 /* data diet.app */,
+				043BD9061E8593C2008A4DD3 /* DataBlocker.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +108,26 @@
 			path = "data diet";
 			sourceTree = "<group>";
 		};
+		043BD9071E8593C2008A4DD3 /* DataBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */,
+				043BD9161E85942E008A4DD3 /* datalist.json */,
+				043BD9141E859429008A4DD3 /* emptylist.json */,
+				043BD90C1E8593C2008A4DD3 /* Info.plist */,
+				043BD91A1E8598E5008A4DD3 /* 3rd Party */,
+			);
+			path = DataBlocker;
+			sourceTree = "<group>";
+		};
+		043BD91A1E8598E5008A4DD3 /* 3rd Party */ = {
+			isa = PBXGroup;
+			children = (
+				043BD9181E8598D6008A4DD3 /* Reachability.swift */,
+			);
+			name = "3rd Party";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +138,34 @@
 				043BD8E91E8590CC008A4DD3 /* Sources */,
 				043BD8EA1E8590CC008A4DD3 /* Frameworks */,
 				043BD8EB1E8590CC008A4DD3 /* Resources */,
+				043BD9131E8593C2008A4DD3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				043BD90E1E8593C2008A4DD3 /* PBXTargetDependency */,
 			);
 			name = "data diet";
 			productName = "data diet";
 			productReference = 043BD8ED1E8590CD008A4DD3 /* data diet.app */;
 			productType = "com.apple.product-type.application";
+		};
+		043BD9051E8593C2008A4DD3 /* DataBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 043BD9101E8593C2008A4DD3 /* Build configuration list for PBXNativeTarget "DataBlocker" */;
+			buildPhases = (
+				043BD9021E8593C2008A4DD3 /* Sources */,
+				043BD9031E8593C2008A4DD3 /* Frameworks */,
+				043BD9041E8593C2008A4DD3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DataBlocker;
+			productName = DataBlocker;
+			productReference = 043BD9061E8593C2008A4DD3 /* DataBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -96,6 +179,12 @@
 				TargetAttributes = {
 					043BD8EC1E8590CC008A4DD3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 73WHT8U62X;
+						ProvisioningStyle = Automatic;
+					};
+					043BD9051E8593C2008A4DD3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 73WHT8U62X;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -114,6 +203,7 @@
 			projectRoot = "";
 			targets = (
 				043BD8EC1E8590CC008A4DD3 /* data diet */,
+				043BD9051E8593C2008A4DD3 /* DataBlocker */,
 			);
 		};
 /* End PBXProject section */
@@ -129,6 +219,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		043BD9041E8593C2008A4DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				043BD9151E859429008A4DD3 /* emptylist.json in Resources */,
+				043BD9171E85942E008A4DD3 /* datalist.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -141,7 +240,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		043BD9021E8593C2008A4DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				043BD9191E8598D6008A4DD3 /* Reachability.swift in Sources */,
+				043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		043BD90E1E8593C2008A4DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 043BD9051E8593C2008A4DD3 /* DataBlocker */;
+			targetProxy = 043BD90D1E8593C2008A4DD3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		043BD8F41E8590CD008A4DD3 /* Main.storyboard */ = {
@@ -259,7 +375,9 @@
 		043BD9001E8590CD008A4DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = "data diet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacklightbody.data-diet";
@@ -271,11 +389,41 @@
 		043BD9011E8590CD008A4DD3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = "data diet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jacklightbody.data-diet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		043BD9111E8593C2008A4DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEVELOPMENT_TEAM = 73WHT8U62X;
+				INFOPLIST_FILE = DataBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacklightbody.data-diet.DataBlocker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		043BD9121E8593C2008A4DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEVELOPMENT_TEAM = 73WHT8U62X;
+				INFOPLIST_FILE = DataBlocker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jacklightbody.data-diet.DataBlocker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -297,6 +445,14 @@
 			buildConfigurations = (
 				043BD9001E8590CD008A4DD3 /* Debug */,
 				043BD9011E8590CD008A4DD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		043BD9101E8593C2008A4DD3 /* Build configuration list for PBXNativeTarget "DataBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				043BD9111E8593C2008A4DD3 /* Debug */,
+				043BD9121E8593C2008A4DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
