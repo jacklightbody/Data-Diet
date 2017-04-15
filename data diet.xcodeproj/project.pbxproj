@@ -14,9 +14,9 @@
 		043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BD8F91E8590CD008A4DD3 /* LaunchScreen.storyboard */; };
 		043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
 		043BD90F1E8593C2008A4DD3 /* DataBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 043BD9061E8593C2008A4DD3 /* DataBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		043BD9151E859429008A4DD3 /* emptylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9141E859429008A4DD3 /* emptylist.json */; };
 		043BD9171E85942E008A4DD3 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
-		043BD9191E8598D6008A4DD3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD9181E8598D6008A4DD3 /* Reachability.swift */; };
+		046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */; };
+		046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D522A1EA0FF37006CDC20 /* BlockedResources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		043BD9061E8593C2008A4DD3 /* DataBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DataBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
 		043BD90C1E8593C2008A4DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		043BD9141E859429008A4DD3 /* emptylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptylist.json; sourceTree = "<group>"; };
 		043BD9161E85942E008A4DD3 /* datalist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datalist.json; sourceTree = "<group>"; };
-		043BD9181E8598D6008A4DD3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		046D522A1EA0FF37006CDC20 /* BlockedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +80,7 @@
 		043BD8E41E8590CC008A4DD3 = {
 			isa = PBXGroup;
 			children = (
+				043BD91A1E8598E5008A4DD3 /* 3rd Party */,
 				043BD8EF1E8590CD008A4DD3 /* data diet */,
 				043BD9071E8593C2008A4DD3 /* DataBlocker */,
 				043BD8EE1E8590CD008A4DD3 /* Products */,
@@ -100,6 +101,7 @@
 			children = (
 				043BD8F01E8590CD008A4DD3 /* AppDelegate.swift */,
 				043BD8F21E8590CD008A4DD3 /* ViewController.swift */,
+				046D522A1EA0FF37006CDC20 /* BlockedResources.swift */,
 				043BD8F41E8590CD008A4DD3 /* Main.storyboard */,
 				043BD8F71E8590CD008A4DD3 /* Assets.xcassets */,
 				043BD8F91E8590CD008A4DD3 /* LaunchScreen.storyboard */,
@@ -113,9 +115,7 @@
 			children = (
 				043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */,
 				043BD9161E85942E008A4DD3 /* datalist.json */,
-				043BD9141E859429008A4DD3 /* emptylist.json */,
 				043BD90C1E8593C2008A4DD3 /* Info.plist */,
-				043BD91A1E8598E5008A4DD3 /* 3rd Party */,
 			);
 			path = DataBlocker;
 			sourceTree = "<group>";
@@ -123,9 +123,10 @@
 		043BD91A1E8598E5008A4DD3 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
-				043BD9181E8598D6008A4DD3 /* Reachability.swift */,
+				046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */,
 			);
 			name = "3rd Party";
+			path = DataBlocker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +182,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 73WHT8U62X;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					043BD9051E8593C2008A4DD3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -223,7 +229,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043BD9151E859429008A4DD3 /* emptylist.json in Resources */,
 				043BD9171E85942E008A4DD3 /* datalist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */,
+				046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */,
 				043BD8F31E8590CD008A4DD3 /* ViewController.swift in Sources */,
 				043BD8F11E8590CD008A4DD3 /* AppDelegate.swift in Sources */,
 			);
@@ -244,7 +251,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				043BD9191E8598D6008A4DD3 /* Reachability.swift in Sources */,
 				043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +453,7 @@
 				043BD9011E8590CD008A4DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		043BD9101E8593C2008A4DD3 /* Build configuration list for PBXNativeTarget "DataBlocker" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +462,7 @@
 				043BD9121E8593C2008A4DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
