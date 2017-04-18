@@ -17,6 +17,17 @@ class ViewController: UITableViewController{
 	@IBOutlet weak var fontsSwitch: UISwitch!
 	@IBOutlet weak var popupsSwitch: UISwitch!
 	@IBOutlet weak var mediaSwitch: UISwitch!
+	let reachability = Reachability()
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+		do{
+			try reachability?.startNotifier()
+		}catch{
+			print("could not start reachability notifier")
+		}
+		
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let resources = br.getBlockedResources()
@@ -83,11 +94,18 @@ class ViewController: UITableViewController{
 		br.toggleResource("media")
 		br.toggleResource("raw")
 	}
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
+	func reachabilityChanged() {
+		let defaults = UserDefaults.standard
+		let reach = Reachability()!
+		if reach.isReachable {
+			if reach.isReachableViaWiFi {
+				defaults.set("wifi", forKey: "connectionMethod")
+				SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
+			} else {
+				defaults.set("data", forKey: "connectionMethod")
+				SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
+			}
+		}
 	}
-
-
 }
 

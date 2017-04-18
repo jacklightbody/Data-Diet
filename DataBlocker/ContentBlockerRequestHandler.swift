@@ -14,8 +14,13 @@ class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequest(with context: NSExtensionContext) {
 		let datajson = NSItemProvider(contentsOf: Bundle.main.url(forResource: "datalist", withExtension: "json"))!
+		let wifijson = NSItemProvider(contentsOf: Bundle.main.url(forResource: "wifilist", withExtension: "json"))!
+		let defaults = UserDefaults.standard
 		let item = NSExtensionItem()
 		item.attachments = [datajson]
+		if defaults.string(forKey: "connectionMethod") == "wifi"{
+			item.attachments = [wifijson]
+		}
         context.completeRequest(returningItems: [item], completionHandler: nil)
     }
 	

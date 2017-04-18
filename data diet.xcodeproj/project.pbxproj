@@ -19,6 +19,10 @@
 		046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D522A1EA0FF37006CDC20 /* BlockedResources.swift */; };
 		04B67DD11EA40A73008A5EC6 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
 		04B67DD21EA40A75008A5EC6 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
+		04B8FC0D1EA63D6F00A27ED2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */; };
+		04B8FC0E1EA63D6F00A27ED2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */; };
+		04B8FC101EA63ED600A27ED2 /* wifilist.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B8FC0F1EA63ED600A27ED2 /* wifilist.json */; };
+		04B8FC111EA63ED600A27ED2 /* wifilist.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B8FC0F1EA63ED600A27ED2 /* wifilist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,8 @@
 		043BD9161E85942E008A4DD3 /* datalist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datalist.json; sourceTree = "<group>"; };
 		046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		046D522A1EA0FF37006CDC20 /* BlockedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedResources.swift; sourceTree = "<group>"; };
+		04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		04B8FC0F1EA63ED600A27ED2 /* wifilist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wifilist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 			children = (
 				043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */,
 				043BD9161E85942E008A4DD3 /* datalist.json */,
+				04B8FC0F1EA63ED600A27ED2 /* wifilist.json */,
 				043BD90C1E8593C2008A4DD3 /* Info.plist */,
 			);
 			path = DataBlocker;
@@ -125,6 +132,7 @@
 		043BD91A1E8598E5008A4DD3 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */,
 				046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */,
 			);
 			name = "3rd Party";
@@ -221,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B8FC101EA63ED600A27ED2 /* wifilist.json in Resources */,
 				043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */,
 				043BD8F81E8590CD008A4DD3 /* Assets.xcassets in Resources */,
 				043BD8F61E8590CD008A4DD3 /* Main.storyboard in Resources */,
@@ -232,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B8FC111EA63ED600A27ED2 /* wifilist.json in Resources */,
 				043BD9171E85942E008A4DD3 /* datalist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +255,7 @@
 			files = (
 				046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */,
 				04B67DD11EA40A73008A5EC6 /* ContentBlockerRequestHandler.swift in Sources */,
+				04B8FC0D1EA63D6F00A27ED2 /* Reachability.swift in Sources */,
 				046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */,
 				043BD8F31E8590CD008A4DD3 /* ViewController.swift in Sources */,
 				043BD8F11E8590CD008A4DD3 /* AppDelegate.swift in Sources */,
@@ -255,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B8FC0E1EA63D6F00A27ED2 /* Reachability.swift in Sources */,
 				043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
