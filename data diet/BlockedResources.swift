@@ -19,17 +19,18 @@ class BlockedResources{
 		"media",
 		"popup",
 		"style-sheet",
-		"script"
+		"script",
+		"raw"
 	]
-	let dataKey = "blocked"
+	let dataKey = "blockedResources"
 	
 	init(){
 		let defaults = UserDefaults.standard
-		if !defaults.bool(forKey: "openedBefore"){
+		if !defaults.bool(forKey: "setDefaults"){
 			// If we don't have any user defaults
 			// ie its the first time we opened it
 			// just block everything
-			defaults.set(true, forKey: "openedBefore")
+			defaults.set(true, forKey: "setDefaults")
 			defaults.set(possibleResources, forKey: dataKey)
 			defaults.synchronize()
 		}
@@ -74,15 +75,22 @@ class BlockedResources{
 	}
 	func writeBlockedResources(){
 		let blockedResources = getBlockedResources()
+		//let bundle = Bundle.init(for: NSClassFromString("ContentBlockerRequestHandler")!)
 		let fileLocation = Bundle.main.path(forResource: "datalist", ofType: "json")
 		// need to figure out how to get path to file in diff target
 		let fileHandle = FileHandle(forWritingAtPath:fileLocation!)
+		fileHandle?.truncateFile(atOffset: 0)
 		var outputJson = JSON(blockedResources as Any).rawString(String.Encoding.utf8)
-		outputJson = "[{'action': {'type': 'block'},'trigger': {'url-filter': '.*','resource-type':"+outputJson!
-		outputJson = outputJson! + "}}]"
-		let data = Data(base64Encoded: outputJson!, options: [])
-		fileHandle!.write(data!)
+		outputJson = "[\n\t{\n\t\t'action': {\n\t\t\t'type': 'block'\n\t\t},\n\t\t'trigger': {\n\t\t\t'url-filter': '.*',\n\t\t\t'resource-type':"+outputJson!
+		outputJson = outputJson! + "\n\t\t}\n\t}\n]"
+		let data = outputJson!.data(using: String.Encoding.utf8)!
+		fileHandle!.write(data)
 		fileHandle?.closeFile()
-		SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
+		SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker"){error in
+			guard error == nil else{
+				print(error)
+				return
+			}
+		}
 	}
 }

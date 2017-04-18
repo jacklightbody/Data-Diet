@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Nc3-OM-FKv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vzY-gS-Y4R">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="bgs-lr-Wfd">
+            <objects>
+                <navigationController id="vzY-gS-Y4R" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eLY-0r-S6j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nc3-OM-FKv" kind="relationship" relationship="rootViewController" id="jOl-S4-Qgq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLU-mc-8i1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1399" y="80"/>
+        </scene>
+        <!--Blocking Settings-->
         <scene sceneID="BNT-eC-bDW">
             <objects>
                 <tableViewController id="Nc3-OM-FKv" customClass="ViewController" customModule="data_diet" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,6 +34,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All resources that are turned on above will be automatically blocked in Safari." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s8i-lZ-dnL">
+                            <rect key="frame" x="0.0" y="300" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <sections>
                             <tableViewSection id="5lK-Nd-C1T">
                                 <cells>
@@ -57,7 +80,6 @@
                                                 <constraint firstItem="PVn-5u-hEZ" firstAttribute="centerY" secondItem="BgU-sx-WtJ" secondAttribute="centerY" id="z4z-q9-anr"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="Images" rowHeight="50" id="DiP-RG-rvo">
                                         <rect key="frame" x="0.0" y="50" width="375" height="50"/>
@@ -78,9 +100,8 @@
                                                         <action selector="imagesToggled:" destination="Nc3-OM-FKv" eventType="valueChanged" id="gez-lj-wNp"/>
                                                     </connections>
                                                 </switch>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-5M-syg">
-                                                    <rect key="frame" x="176" y="14" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7lq-5M-syg">
+                                                    <rect key="frame" x="127" y="14" width="22" height="22"/>
                                                     <connections>
                                                         <action selector="imagesInfo:" destination="Nc3-OM-FKv" eventType="touchUpInside" id="Pon-Ge-7o7"/>
                                                     </connections>
@@ -88,13 +109,14 @@
                                             </subviews>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="7lq-5M-syg" firstAttribute="centerY" secondItem="kpC-uv-fHu" secondAttribute="centerY" id="1SI-Xs-mul"/>
+                                                <constraint firstItem="7lq-5M-syg" firstAttribute="leading" secondItem="5yQ-wr-6Sy" secondAttribute="trailing" constant="10" id="3yp-Ha-5p7"/>
                                                 <constraint firstItem="5yQ-wr-6Sy" firstAttribute="leading" secondItem="kpC-uv-fHu" secondAttribute="leading" constant="20" id="4cD-ba-ZcV"/>
                                                 <constraint firstItem="UYZ-5Z-nWK" firstAttribute="centerY" secondItem="kpC-uv-fHu" secondAttribute="centerY" id="9Sl-UT-hFp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UYZ-5Z-nWK" secondAttribute="trailing" constant="20" id="OIA-DL-X2G"/>
                                                 <constraint firstItem="5yQ-wr-6Sy" firstAttribute="centerY" secondItem="kpC-uv-fHu" secondAttribute="centerY" id="VrJ-lL-nEK"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="fonts" rowHeight="50" id="1Z4-yF-1wn">
                                         <rect key="frame" x="0.0" y="100" width="375" height="50"/>
@@ -132,7 +154,6 @@
                                                 <constraint firstItem="VuL-Ww-YV1" firstAttribute="centerY" secondItem="KuY-u3-CNj" secondAttribute="centerY" id="xu5-JW-NIf"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="popups" rowHeight="50" id="g9c-eU-WIp">
                                         <rect key="frame" x="0.0" y="150" width="375" height="50"/>
@@ -153,9 +174,8 @@
                                                         <action selector="popupsToggled:" destination="Nc3-OM-FKv" eventType="valueChanged" id="yhk-4g-8Qp"/>
                                                     </connections>
                                                 </switch>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ8-Xw-vsq">
-                                                    <rect key="frame" x="176" y="14" width="22" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJ8-Xw-vsq">
+                                                    <rect key="frame" x="131" y="14" width="22" height="22"/>
                                                     <connections>
                                                         <action selector="popupsInfo:" destination="Nc3-OM-FKv" eventType="touchUpInside" id="OXe-H0-1yW"/>
                                                     </connections>
@@ -163,13 +183,14 @@
                                             </subviews>
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="jJ8-Xw-vsq" firstAttribute="centerY" secondItem="NMh-M6-Zeq" secondAttribute="centerY" id="Ba7-fL-BXN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="kjf-Oy-ACP" secondAttribute="trailing" constant="20" id="Bah-Lb-UGE"/>
                                                 <constraint firstItem="WZc-Oy-BfA" firstAttribute="centerY" secondItem="NMh-M6-Zeq" secondAttribute="centerY" id="P2K-fa-lyv"/>
                                                 <constraint firstItem="kjf-Oy-ACP" firstAttribute="centerY" secondItem="NMh-M6-Zeq" secondAttribute="centerY" id="S2R-dd-tZa"/>
+                                                <constraint firstItem="jJ8-Xw-vsq" firstAttribute="leading" secondItem="WZc-Oy-BfA" secondAttribute="trailing" constant="10" id="fig-l7-dWJ"/>
                                                 <constraint firstItem="WZc-Oy-BfA" firstAttribute="leading" secondItem="NMh-M6-Zeq" secondAttribute="leading" constant="20" id="gyQ-mr-0Ip"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="media" rowHeight="50" id="zax-Nv-UTn">
                                         <rect key="frame" x="0.0" y="200" width="375" height="50"/>
@@ -207,7 +228,6 @@
                                                 <constraint firstItem="GMW-hi-DlW" firstAttribute="centerY" secondItem="rbX-xw-dEd" secondAttribute="centerY" id="iF5-Pg-C6n"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="Styling" rowHeight="50" id="6os-xg-5eO">
                                         <rect key="frame" x="0.0" y="250" width="375" height="50"/>
@@ -245,7 +265,6 @@
                                                 <constraint firstItem="Qto-Dw-gJz" firstAttribute="leading" secondItem="jgl-I9-7GP" secondAttribute="leading" constant="20" id="eMU-9b-q87"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -255,6 +274,7 @@
                             <outlet property="delegate" destination="Nc3-OM-FKv" id="Ek5-dS-PSY"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Blocking Settings" id="QaM-14-9aE"/>
                     <connections>
                         <outlet property="fontsSwitch" destination="vZ2-fS-KmZ" id="hkq-ky-bhF"/>
                         <outlet property="imageSwitch" destination="UYZ-5Z-nWK" id="fnh-qI-Fhg"/>

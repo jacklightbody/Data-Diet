@@ -20,6 +20,7 @@ class ViewController: UITableViewController{
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		let resources = br.getBlockedResources()
+		SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
 		// Set all our switches to the appropriate values
 		jsSwitch.setOn((resources?.contains("script"))!, animated: false)
 		imageSwitch.setOn((resources?.contains("image"))!, animated: false)
@@ -27,6 +28,7 @@ class ViewController: UITableViewController{
 		fontsSwitch.setOn((resources?.contains("font"))!, animated: false)
 		popupsSwitch.setOn((resources?.contains("popup"))!, animated: false)
 		mediaSwitch.setOn((resources?.contains("media"))!, animated: false)
+		self.navigationItem.hidesBackButton = true
 	
 		let _ = BlockedResources()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -79,6 +81,7 @@ class ViewController: UITableViewController{
 	}
 	@IBAction func mediaToggled(_ sender: Any) {
 		br.toggleResource("media")
+		br.toggleResource("raw")
 	}
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

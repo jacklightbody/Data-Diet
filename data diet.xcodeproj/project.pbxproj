@@ -17,6 +17,8 @@
 		043BD9171E85942E008A4DD3 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
 		046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */; };
 		046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D522A1EA0FF37006CDC20 /* BlockedResources.swift */; };
+		04B67DD11EA40A73008A5EC6 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
+		04B67DD21EA40A75008A5EC6 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +224,7 @@
 				043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */,
 				043BD8F81E8590CD008A4DD3 /* Assets.xcassets in Resources */,
 				043BD8F61E8590CD008A4DD3 /* Main.storyboard in Resources */,
+				04B67DD21EA40A75008A5EC6 /* datalist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */,
+				04B67DD11EA40A73008A5EC6 /* ContentBlockerRequestHandler.swift in Sources */,
 				046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */,
 				043BD8F31E8590CD008A4DD3 /* ViewController.swift in Sources */,
 				043BD8F11E8590CD008A4DD3 /* AppDelegate.swift in Sources */,

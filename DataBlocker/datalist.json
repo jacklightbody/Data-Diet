@@ -1,17 +1,15 @@
 [
-    {
-        "action": {
-            "type": "block"
-        },
-        "trigger": {
-            "url-filter": ".*",
+	{
+		"action": {
+			"type": "block"
+		},
+		"trigger": {
+			"url-filter": ".*",
 			"resource-type": [
-				"image",
 				"font",
-				"svg-document",
-				"media",
+				"style-sheet",
 				"popup"
 			]
-        }
-    }
+		}
+	}
 ]
