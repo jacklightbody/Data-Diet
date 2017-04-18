@@ -20,6 +20,16 @@ class ViewController: UITableViewController{
 	let reachability = Reachability()
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		let defaults = UserDefaults.standard
+		if !defaults.bool(forKey: "setDefaults"){
+			// If we don't have any user defaults
+			// ie its the first time we opened it
+			// just block everything
+			BlockedResources().setDefaultResources()
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateViewController(withIdentifier: "Onboard")
+			self.present(controller, animated: true, completion: nil)
+		}
 		NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
 		do{
 			try reachability?.startNotifier()

@@ -23,17 +23,11 @@ class BlockedResources{
 		"raw"
 	]
 	let dataKey = "blockedResources"
-	
-	init(){
+	func setDefaultResources(){
 		let defaults = UserDefaults.standard
-		if !defaults.bool(forKey: "setDefaults"){
-			// If we don't have any user defaults
-			// ie its the first time we opened it
-			// just block everything
-			defaults.set(true, forKey: "setDefaults")
-			defaults.set(possibleResources, forKey: dataKey)
-			defaults.synchronize()
-		}
+		defaults.set(true, forKey: "setDefaults")
+		defaults.set(possibleResources, forKey: dataKey)
+		defaults.synchronize()
 	}
 	func getBlockedResources() -> [String]?{
 		let defaults = UserDefaults.standard
