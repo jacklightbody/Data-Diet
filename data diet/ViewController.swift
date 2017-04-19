@@ -18,14 +18,16 @@ class ViewController: UITableViewController{
 	@IBOutlet weak var popupsSwitch: UISwitch!
 	@IBOutlet weak var mediaSwitch: UISwitch!
 	let reachability = Reachability()
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		let defaults = UserDefaults.standard
-		if !defaults.bool(forKey: "setDefaults"){
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
+		defaults!.synchronize()
+		if !defaults!.bool(forKey: "setDefaults"){
 			// If we don't have any user defaults
 			// ie its the first time we opened it
 			// just block everything
-			BlockedResources().setDefaultResources()
+			print("test")
+			br.setDefaultResources()
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
 			let controller = storyboard.instantiateViewController(withIdentifier: "Onboard")
 			self.present(controller, animated: true, completion: nil)
@@ -36,12 +38,7 @@ class ViewController: UITableViewController{
 		}catch{
 			print("could not start reachability notifier")
 		}
-		
-	}
-	override func viewDidLoad() {
-		super.viewDidLoad()
 		let resources = br.getBlockedResources()
-		SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
 		// Set all our switches to the appropriate values
 		jsSwitch.setOn((resources?.contains("script"))!, animated: false)
 		imageSwitch.setOn((resources?.contains("image"))!, animated: false)
@@ -110,12 +107,19 @@ class ViewController: UITableViewController{
 		if reach.isReachable {
 			if reach.isReachableViaWiFi {
 				defaults.set("wifi", forKey: "connectionMethod")
-				SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
+				print("wifi")
+				br.reloadBlocker()
 			} else {
 				defaults.set("data", forKey: "connectionMethod")
-				SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker", completionHandler: nil)
+				print("data")
+				br.reloadBlocker()
 			}
 		}
+	}
+	func onWifi() -> Bool{
+		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
+		print(defaults!.string(forKey: "connectionMethod"))
+		return defaults!.string(forKey: "connectionMethod")! == "wifi"
 	}
 }
 

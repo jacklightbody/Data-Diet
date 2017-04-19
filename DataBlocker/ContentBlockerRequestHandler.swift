@@ -13,14 +13,17 @@ import SafariServices
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequest(with context: NSExtensionContext) {
-		let datajson = NSItemProvider(contentsOf: Bundle.main.url(forResource: "datalist", withExtension: "json"))!
-		let wifijson = NSItemProvider(contentsOf: Bundle.main.url(forResource: "wifilist", withExtension: "json"))!
-		let defaults = UserDefaults.standard
+
 		let item = NSExtensionItem()
-		item.attachments = [datajson]
-		if defaults.string(forKey: "connectionMethod") == "wifi"{
-			item.attachments = [wifijson]
-		}
+		var data = Data()
+		data = "".data(using: String.Encoding.utf8)!
+		/*if ViewController().onWifi(){
+			data = "".data(using: String.Encoding.utf8)!
+		}else{
+			data = BlockedResources().getBlockedJSON()
+		}*/
+		let attachment = NSItemProvider(item: data as NSSecureCoding, typeIdentifier: kUTTypeJSON as String)
+		item.attachments = [attachment]
         context.completeRequest(returningItems: [item], completionHandler: nil)
     }
 	

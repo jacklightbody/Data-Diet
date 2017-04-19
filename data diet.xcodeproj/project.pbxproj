@@ -14,15 +14,14 @@
 		043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BD8F91E8590CD008A4DD3 /* LaunchScreen.storyboard */; };
 		043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
 		043BD90F1E8593C2008A4DD3 /* DataBlocker.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 043BD9061E8593C2008A4DD3 /* DataBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		043BD9171E85942E008A4DD3 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
+		0450EA721EA79D42005C87E7 /* BlockedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D522A1EA0FF37006CDC20 /* BlockedResources.swift */; };
+		0450EA731EA7B13A005C87E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD8F21E8590CD008A4DD3 /* ViewController.swift */; };
 		046D52291EA0FA82006CDC20 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */; };
 		046D522B1EA0FF37006CDC20 /* BlockedResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D522A1EA0FF37006CDC20 /* BlockedResources.swift */; };
 		04B67DD11EA40A73008A5EC6 /* ContentBlockerRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */; };
-		04B67DD21EA40A75008A5EC6 /* datalist.json in Resources */ = {isa = PBXBuildFile; fileRef = 043BD9161E85942E008A4DD3 /* datalist.json */; };
 		04B8FC0D1EA63D6F00A27ED2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */; };
 		04B8FC0E1EA63D6F00A27ED2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */; };
-		04B8FC101EA63ED600A27ED2 /* wifilist.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B8FC0F1EA63ED600A27ED2 /* wifilist.json */; };
-		04B8FC111EA63ED600A27ED2 /* wifilist.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B8FC0F1EA63ED600A27ED2 /* wifilist.json */; };
+		04FDB27C1EA7BA6E00D238BD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +59,11 @@
 		043BD9061E8593C2008A4DD3 /* DataBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DataBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandler.swift; sourceTree = "<group>"; };
 		043BD90C1E8593C2008A4DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		043BD9161E85942E008A4DD3 /* datalist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = datalist.json; sourceTree = "<group>"; };
 		046D52281EA0FA82006CDC20 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		046D522A1EA0FF37006CDC20 /* BlockedResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedResources.swift; sourceTree = "<group>"; };
 		04B8FC0C1EA63D6F00A27ED2 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		04B8FC0F1EA63ED600A27ED2 /* wifilist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wifilist.json; sourceTree = "<group>"; };
+		04FDB27D1EA7BC4A00D238BD /* data diet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "data diet.entitlements"; sourceTree = "<group>"; };
+		04FDB27E1EA7BDE100D238BD /* DataBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DataBlocker.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +106,7 @@
 		043BD8EF1E8590CD008A4DD3 /* data diet */ = {
 			isa = PBXGroup;
 			children = (
+				04FDB27D1EA7BC4A00D238BD /* data diet.entitlements */,
 				043BD8F01E8590CD008A4DD3 /* AppDelegate.swift */,
 				043BD8F21E8590CD008A4DD3 /* ViewController.swift */,
 				046D522A1EA0FF37006CDC20 /* BlockedResources.swift */,
@@ -121,9 +121,8 @@
 		043BD9071E8593C2008A4DD3 /* DataBlocker */ = {
 			isa = PBXGroup;
 			children = (
+				04FDB27E1EA7BDE100D238BD /* DataBlocker.entitlements */,
 				043BD90A1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift */,
-				043BD9161E85942E008A4DD3 /* datalist.json */,
-				04B8FC0F1EA63ED600A27ED2 /* wifilist.json */,
 				043BD90C1E8593C2008A4DD3 /* Info.plist */,
 			);
 			path = DataBlocker;
@@ -185,7 +184,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Jack lightbody";
 				TargetAttributes = {
 					043BD8EC1E8590CC008A4DD3 = {
@@ -193,6 +192,9 @@
 						DevelopmentTeam = 73WHT8U62X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -202,6 +204,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 73WHT8U62X;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -229,11 +236,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B8FC101EA63ED600A27ED2 /* wifilist.json in Resources */,
 				043BD8FB1E8590CD008A4DD3 /* LaunchScreen.storyboard in Resources */,
 				043BD8F81E8590CD008A4DD3 /* Assets.xcassets in Resources */,
 				043BD8F61E8590CD008A4DD3 /* Main.storyboard in Resources */,
-				04B67DD21EA40A75008A5EC6 /* datalist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,8 +246,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04B8FC111EA63ED600A27ED2 /* wifilist.json in Resources */,
-				043BD9171E85942E008A4DD3 /* datalist.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B8FC0E1EA63D6F00A27ED2 /* Reachability.swift in Sources */,
+				0450EA721EA79D42005C87E7 /* BlockedResources.swift in Sources */,
+				0450EA731EA7B13A005C87E7 /* ViewController.swift in Sources */,
+				04FDB27C1EA7BA6E00D238BD /* SwiftyJSON.swift in Sources */,
 				043BD90B1E8593C2008A4DD3 /* ContentBlockerRequestHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +405,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "data diet/data diet.entitlements";
 				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = "data diet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -413,6 +420,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "data diet/data diet.entitlements";
 				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = "data diet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -425,7 +433,7 @@
 		043BD9111E8593C2008A4DD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = DataBlocker/DataBlocker.entitlements;
 				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = DataBlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -439,7 +447,7 @@
 		043BD9121E8593C2008A4DD3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = DataBlocker/DataBlocker.entitlements;
 				DEVELOPMENT_TEAM = 73WHT8U62X;
 				INFOPLIST_FILE = DataBlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
