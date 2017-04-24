@@ -13,18 +13,17 @@ import SafariServices
 class ContentBlockerRequestHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequest(with context: NSExtensionContext) {
-
+		let groupRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jacklightbody.datadiet")
 		let item = NSExtensionItem()
-		var data = Data()
-		data = "".data(using: String.Encoding.utf8)!
-		/*if ViewController().onWifi(){
-			data = "".data(using: String.Encoding.utf8)!
-		}else{
-			data = BlockedResources().getBlockedJSON()
-		}*/
-		let attachment = NSItemProvider(item: data as NSSecureCoding, typeIdentifier: kUTTypeJSON as String)
-		item.attachments = [attachment]
+		let blockerURL = groupRoot!.appendingPathComponent("data.json")
+		item.attachments = [ NSItemProvider(contentsOf: blockerURL)! ]
         context.completeRequest(returningItems: [item], completionHandler: nil)
     }
+	func onWifi() -> Bool{
+		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
+		print("test")
+		print(defaults!.string(forKey: "connectionMethod"))
+		return defaults!.string(forKey: "connectionMethod")! == "wifi"
+	}
 	
 }

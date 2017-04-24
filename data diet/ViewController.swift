@@ -102,24 +102,23 @@ class ViewController: UITableViewController{
 		br.toggleResource("raw")
 	}
 	func reachabilityChanged() {
-		let defaults = UserDefaults.standard
+		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
+		let key = "conenctionMethod"
 		let reach = Reachability()!
 		if reach.isReachable {
 			if reach.isReachableViaWiFi {
-				defaults.set("wifi", forKey: "connectionMethod")
+				defaults!.set("wifi", forKey: key)
+				defaults!.synchronize()
 				print("wifi")
+				br.writeBlockedResources()
 				br.reloadBlocker()
 			} else {
-				defaults.set("data", forKey: "connectionMethod")
+				defaults!.set("data", forKey: key)
 				print("data")
+				br.writeBlockedResources()
 				br.reloadBlocker()
 			}
 		}
-	}
-	func onWifi() -> Bool{
-		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
-		print(defaults!.string(forKey: "connectionMethod"))
-		return defaults!.string(forKey: "connectionMethod")! == "wifi"
 	}
 }
 

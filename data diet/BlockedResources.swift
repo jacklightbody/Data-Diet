@@ -23,19 +23,28 @@ class BlockedResources{
 		"raw"
 	]
 	let dataKey = "blockedResources"
-	let resourcesKey = "resourcesJson"
+
 	func setDefaultResources(){
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
 		defaults!.set(true, forKey: "setDefaults")
-		defaults!.set("", forKey: resourcesKey)
 		defaults!.set(possibleResources, forKey: dataKey)
 		defaults!.synchronize()
+		let groupRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jacklightbody.datadiet")
+		let blockerURL = groupRoot!.appendingPathComponent("data.json")
+		let defaultJson = "[{\"action\": {\"type\": \"block\"},\"trigger\": {\"url-filter\": \".*\",\"resource-type\": [\"image\",\"font\",\"svg-document\",\"media\",\"popup\",\"style-sheet\",\"script\",\"raw\"]}}]"
+		do{
+			try defaultJson.write(to: blockerURL, atomically: false, encoding: String.Encoding.utf8)
+		} catch let error as NSError {
+			print("error writing to url \(blockerURL)")
+			print(error.localizedDescription)
+		}
+		
 		writeBlockedResources()
 	}
-	func getBlockedJSON() -> Data{
+	func onWifi() -> Bool{
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
 		defaults!.synchronize()
-		return defaults!.data(forKey: resourcesKey)!
+		return defaults!.string(forKey: "conenctionMethod")! == "wifi"
 	}
 	func getBlockedResources() -> [String]?{
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
@@ -45,7 +54,7 @@ class BlockedResources{
 	func toggleResource(_ resource: String){
 		let blockedResources = getBlockedResources()
 		if blockedResources!.index(of: resource) == nil{
-			// we aren't blocking it currently, so start doing so
+			// we aren\"t blocking it currently, so start doing so
 			addBlockedResource(resource: resource)
 		}else{
 			// we are blocking it, so stop it
@@ -62,7 +71,7 @@ class BlockedResources{
 			defaults!.synchronize()
 			writeBlockedResources()
 		}
-		// already being blocked, don't need to do anything
+		// already being blocked, don\"t need to do anything
 	}
 	func removeBlockedResource(resource: String){
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
@@ -74,24 +83,36 @@ class BlockedResources{
 			defaults!.synchronize()
 			writeBlockedResources()
 		}
-		// already unblocked, don't need to do anything
+		// already unblocked, don\"t need to do anything
 		
 	}
 	func writeBlockedResources(){
-		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
 		let blockedResources = getBlockedResources()
 		//let bundle = Bundle.init(for: NSClassFromString("ContentBlockerRequestHandler")!)
 		// need to figure out how to get path to file in diff target
 		var outputJson = JSON(blockedResources as Any).rawString(String.Encoding.utf8)
-		outputJson = "[{'action': {'type': 'block'},'trigger': {'url-filter': '.*','resource-type':"+outputJson!
+		outputJson = "[{\"action\": {\"type\": \"block\"},\"trigger\": {\"url-filter\": \".*\",\"resource-type\":"+outputJson!
 		outputJson = outputJson! + "}}]"
-		defaults!.set(outputJson, forKey: resourcesKey)
+		if onWifi(){
+			outputJson = "[{\"action\": {\"type\": \"block\"},\"trigger\": {\"url-filter\": \"nkjsadnfkjsdnafkjsdnkfjsnd\",\"resource-type\":[]}}]"
+		}
+		print(outputJson)
+		let groupRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jacklightbody.datadiet")
+		let blockerURL = groupRoot!.appendingPathComponent("data.json")
+		
+		do{
+			try outputJson?.write(to: blockerURL, atomically: true, encoding: String.Encoding.utf8)
+		} catch let error as NSError {
+			print("error writing to url \(blockerURL)")
+			print(error.localizedDescription)
+		}
+		reloadBlocker()
 	}
 	func reloadBlocker(){
 		SFContentBlockerManager.reloadContentBlocker(withIdentifier: "com.jacklightbody.data-diet.DataBlocker"){error in
 			guard error == nil else{
 				print(error?.localizedDescription)
-				print(error?.NSHelpAnchor)
+				print(error)
 				print("error")
 				return
 			}
