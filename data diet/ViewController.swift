@@ -103,7 +103,7 @@ class ViewController: UITableViewController{
 	}
 	func reachabilityChanged() {
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
-		let key = "conenctionMethod"
+		let key = "connectionMethod"
 		let reach = Reachability()!
 		if reach.isReachable {
 			if reach.isReachableViaWiFi {

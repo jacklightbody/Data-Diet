@@ -28,6 +28,7 @@ class BlockedResources{
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
 		defaults!.set(true, forKey: "setDefaults")
 		defaults!.set(possibleResources, forKey: dataKey)
+		defaults!.set("wifi", forKey: "connectionMethod")
 		defaults!.synchronize()
 		let groupRoot = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.jacklightbody.datadiet")
 		let blockerURL = groupRoot!.appendingPathComponent("data.json")
@@ -44,7 +45,7 @@ class BlockedResources{
 	func onWifi() -> Bool{
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
 		defaults!.synchronize()
-		return defaults!.string(forKey: "conenctionMethod")! == "wifi"
+		return defaults!.string(forKey: "connectionMethod")! == "wifi"
 	}
 	func getBlockedResources() -> [String]?{
 		let defaults = UserDefaults(suiteName: "group.com.jacklightbody.datadiet")
